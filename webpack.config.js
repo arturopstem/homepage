@@ -20,6 +20,10 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.html$/,
+        use: 'html-loader',
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
