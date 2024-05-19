@@ -1,0 +1,202 @@
+.app > header {
+  position: relative;
+}
+
+.app > header::before {
+  position: absolute;
+  inset: -100px;
+  z-index: -1;
+  content: "";
+  background-color: var(--bg-color);
+  box-shadow: var(--box-shadow);
+  transform: translate(-18%, -36%) rotate(58deg);
+}
+
+.header-content {
+  max-width: 480px;
+  margin: auto;
+  padding: clamp(16px, 10dvw, 48px);
+  display: grid;
+  grid-template:
+    "ashley-williams"
+    "about-me"
+    "description"
+    "social-links"
+    / minmax(0, 1fr);
+
+  picture {
+    width: 90%;
+    grid-area: ashley-williams;
+    justify-self: center;
+    box-shadow: var(--box-shadow);
+  }
+
+  h1,
+  h2 {
+    font-family: "PlayFair Display", serif;
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size: clamp(32px, 15dvw, 64px);
+    color: white;
+    width: min-content;
+    grid-area: ashley-williams;
+    place-self: end center;
+    text-shadow: 0 11px 10px rgb(81 67 21 / 80%);
+  }
+
+  h2 {
+    font-size: clamp(24px, 10dvw, 40px);
+    grid-area: about-me;
+    justify-self: center;
+    margin: 24px auto 8px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  p {
+    font-family: Roboto, sans-serif;
+    font-size: clamp(20px, 5dvw, 24px);
+    line-height: 1.5;
+    color: rgb(0 0 0 / 65%);
+    grid-area: description;
+    margin-bottom: 8px;
+  }
+
+  ul {
+    grid-area: social-links;
+    justify-self: center;
+    gap: 16px;
+
+    a {
+      svg {
+        width: 40px;
+      }
+
+      &:hover {
+        svg {
+          fill: var(--bg-color);
+        }
+      }
+
+      &:focus-visible {
+        outline-color: var(--bg-color);
+
+        svg {
+          fill: var(--bg-color);
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 480px) {
+  .app > header::before {
+    width: calc(100dvw * 2);
+    height: calc(100% * 4);
+    inset: revert;
+    bottom: 0;
+    transform-origin: bottom;
+    transform: translate(-25%, -13%) rotate(-15deg);
+  }
+
+  .header-content {
+    max-width: 609px;
+    width: 75%;
+    position: relative;
+    background: white;
+    display: block;
+    box-shadow: var(--box-shadow);
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+
+    picture {
+      width: 320px;
+      width: clamp(210px, 40dvw, 320px);
+      aspect-ratio: 32/35;
+      float: left;
+      margin: -140px 24px 10px -90px;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    h1 {
+      font-size: clamp(32px, 15dvw, 3.5rem);
+      letter-spacing: 2px;
+      width: max-content;
+      position: absolute;
+      top: -10px;
+      right: -40px;
+      transform: translateY(-100%);
+    }
+
+    h2 {
+      font-size: clamp(20px, 6dvw, 40px);
+      text-align: center;
+      white-space: nowrap;
+      margin-top: 8px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    ul {
+      display: none;
+    }
+  }
+}
+
+@media (width >= 1200px) {
+  .app > header::before {
+    transform: translate(-25%, -2%) rotate(-12deg);
+  }
+
+  .header-content {
+    max-width: 932px;
+    width: 932px;
+    padding: 32px 32px 32px 0;
+    display: grid;
+    grid-template:
+      "ashley-williams about-me" minmax(0, min-content)
+      "ashley-williams description" minmax(0, 1fr)
+      "ashley-williams social-links" minmax(0, min-content)
+      / auto minmax(0, 1fr);
+    column-gap: 24px;
+
+    picture {
+      width: 400px;
+      margin: -80px 0;
+    }
+
+    h1 {
+      font-size: 52px;
+      letter-spacing: normal;
+      position: revert;
+      transform: translateY(116%);
+    }
+
+    h2 {
+      margin: 0;
+      text-align: left;
+      place-self: start;
+    }
+
+    p {
+      margin-top: 16px;
+    }
+
+    ul {
+      justify-self: end;
+      display: flex;
+    }
+  }
+}
