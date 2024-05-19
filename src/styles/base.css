@@ -1,3 +1,8 @@
+:root {
+  --bg-color: #0891b2;
+  --box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
+}
+
 *,
 *::before,
 *::after {
@@ -8,4 +13,24 @@
 
 html {
   box-sizing: border-box;
+}
+
+.app {
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+a {
+  display: flex;
+}
+
+svg {
+  user-select: none;
+  width: 24px;
+  aspect-ratio: 1/1;
 }
