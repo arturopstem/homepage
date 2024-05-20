@@ -1,0 +1,164 @@
+.my-work {
+  max-width: 480px;
+  margin: auto;
+  padding: 80px clamp(16px, 10dvw, 48px);
+
+  h2,
+  h3,
+  picture {
+    font-family: "PlayFair Display", serif;
+    font-weight: normal;
+  }
+
+  h2 {
+    font-size: clamp(24px, 10dvw, 48px);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.work-cards {
+  display: grid;
+  gap: 60px;
+}
+
+.card {
+  display: grid;
+  grid-template:
+    "screenshot screenshot" min-content
+    "project-name links" minmax(50px, 1fr)
+    "description description" min-content
+    / auto auto;
+  box-shadow: var(--box-shadow);
+
+  picture {
+    font-size: clamp(24px, 10dvw, 48px);
+    text-align: center;
+    text-wrap: balance;
+    color: white;
+    background-color: var(--card-color, black);
+    width: 100%;
+    aspect-ratio: 4/3;
+    grid-area: screenshot;
+    display: grid;
+    place-content: center;
+  }
+
+  h3 {
+    font-size: 22px;
+    grid-area: project-name;
+    margin-left: 30px;
+    align-self: center;
+  }
+
+  p {
+    height: min-content;
+    font-family: Roboto, sans-serif;
+    color: rgb(0 0 0 / 70%);
+    grid-area: description;
+    margin: 0 20px 40px;
+  }
+
+  ul {
+    grid-area: links;
+    place-self: center end;
+    gap: 12px;
+    margin-right: 20px;
+
+    a {
+      svg {
+        width: 30px;
+      }
+
+      &:hover {
+        svg {
+          fill: var(--bg-color);
+        }
+      }
+
+      &:focus-visible {
+        outline-color: var(--bg-color);
+
+        svg {
+          fill: var(--bg-color);
+        }
+      }
+    }
+  }
+}
+
+.card:nth-child(1) picture {
+  --card-color: darkred;
+}
+
+.card:nth-child(2) picture {
+  --card-color: slateblue;
+}
+
+.card:nth-child(3) picture {
+  --card-color: olivedrab;
+}
+
+.card:nth-child(4) picture {
+  --card-color: orchid;
+}
+
+.card:nth-child(5) picture {
+  --card-color: peru;
+}
+
+.card:nth-child(6) picture {
+  --card-color: steelblue;
+}
+
+@media (width >= 480px) {
+  .my-work {
+    padding-top: 0;
+  }
+}
+
+@media (width >= 815px) {
+  .my-work {
+    max-width: 609px;
+    padding-left: 0;
+    padding-right: 0;
+
+    h2 {
+      text-align: left;
+      margin-bottom:;
+    }
+  }
+
+  .work-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, min-content);
+    column-gap: 40px;
+  }
+
+  .card {
+    picture {
+      font-size: 32px;
+    }
+
+    h3 {
+      margin-left: 20px;
+    }
+  }
+}
+
+@media (width >= 1200px) {
+  .my-work {
+    max-width: 932px;
+    width: 932px;
+    margin-top: 160px;
+
+    h2 {
+      text-align: left;
+    }
+  }
+
+  .work-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, min-content);
+  }
+}
