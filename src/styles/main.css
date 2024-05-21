@@ -141,6 +141,7 @@
     }
 
     h3 {
+      width: max-content;
       margin-left: 20px;
     }
   }
