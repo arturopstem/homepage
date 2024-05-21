@@ -1,0 +1,166 @@
+.app footer {
+  background-color: var(--bg-color);
+  color: white;
+}
+
+.footer-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template:
+    "contact" min-content
+    "picture" min-content
+    / minmax(0, 1fr);
+
+  .contact {
+    font-family: Roboto, sans-serif;
+    overflow-wrap: anywhere;
+    grid-area: contact;
+    padding: clamp(16px, 10dvw, 48px);
+
+    .contact-heading {
+      font-family: "PlayFair Display", serif;
+      font-weight: normal;
+      font-size: clamp(24px, 10dvw, 40px);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .contact-info {
+      p {
+        font-size: 20px;
+      }
+
+      address {
+        font-style: normal;
+        margin: 32px 0;
+      }
+
+      .contact-phone,
+      .contact-email {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 8px 0;
+
+        .contact-icon {
+          display: none;
+          align-self: baseline;
+          fill: white;
+        }
+      }
+
+      .contact-links {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          color: #333;
+        }
+
+        &:focus-visible {
+          outline-color: white;
+        }
+      }
+    }
+
+    .social-links {
+      gap: 16px;
+      justify-content: center;
+      margin-top: 24px;
+
+      a {
+        svg {
+          width: 40px;
+        }
+
+        &:hover {
+          svg {
+            fill: white;
+          }
+        }
+
+        &:focus-visible {
+          outline-color: white;
+
+          svg {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-img {
+    overflow-x: hidden;
+
+    img {
+      max-width: 640px;
+      width: 100%;
+      height: 427px;
+      display: block;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (width >= 640px) {
+  .footer-wrapper {
+    max-width: 789px;
+    margin: auto;
+    padding: 48px 48px 60px;
+    grid-template: "contact picture";
+    grid-template-rows: min-content;
+    grid-template-columns: auto clamp(250px, 25vw, 296px);
+    gap: 40px;
+    align-items: center;
+
+    .contact {
+      padding: 0;
+
+      .contact-heading {
+        text-align: left;
+      }
+
+      .contact-info {
+        p {
+          font-size: 16px;
+          max-width: 258px;
+        }
+      }
+
+      .social-links {
+        justify-content: start;
+      }
+    }
+  }
+}
+
+@media (width >= 692px) {
+  .footer-wrapper {
+    grid-template-columns: 306px auto;
+
+    .contact {
+      .contact-info {
+        .contact-phone,
+        .contact-email {
+          .contact-icon {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 1200px) {
+  .footer-wrapper {
+    max-width: 932px;
+    padding-left: 0;
+    padding-right: 0;
+    grid-template-columns: auto 565px;
+
+    .contact {
+      align-self: self-start;
+    }
+  }
+}
